@@ -30,6 +30,19 @@ For a basic project template using sbt, see the [simple-example](https://github.
 
 For using full configuration example with `Build.scala`, see the [full-example](https://github.com/AlpineNow/junit_xml_listener/tree/master/src/sbt-test/full-example) project.
 
+Alternatives
+------------
+
+If your tests are written in [`Specs2`](http://etorreborre.github.io/specs2/) then you will get better results from the built in `junitxml` output format than from this SBT plugin.
+
+You should add the following to your `build.sbt`:
+
+    testOptions in Test += Tests.Argument("junitxml")
+
+    testOptions in Test += Tests.Argument("console")
+
+The built in JUnit XML support in Specs2 includes real test names (this project currently only reports "`SuiteSelector.SuiteSelector`" as the name of all tests) and test run durations (currently missing in this project).
+
 Version History
 ---------------
 
