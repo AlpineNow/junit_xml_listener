@@ -8,7 +8,7 @@ import scala.xml.{ Elem, Node, XML }
 import sbt.testing.{ Event => TEvent, Status => TStatus, Logger => TLogger, NestedTestSelector, TestSelector, AnnotatedFingerprint, SubclassFingerprint }
 /*
 The api for the test interface defining the results and events
-can be found here: 
+can be found here:
 https://github.com/sbt/test-interface
 */
 
@@ -70,7 +70,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
      * All tests collected so far.
      */
     def stop(): Elem = {
-      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() < 0 ) acc else acc + e.duration())
+      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() < 0) acc else acc + e.duration())
       val (errors, failures, tests) = count()
 
       val result = <testsuite hostname={ hostname } name={ name } tests={ tests + "" } errors={ errors + "" } failures={ failures + "" } time={ (duration / 1000.0).toString }>
